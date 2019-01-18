@@ -1,12 +1,13 @@
-package com.hellokoding.auth.validator;
+package com.gechackfest.events.validator;
 
-import com.hellokoding.auth.model.User;
-import com.hellokoding.auth.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
+
+import com.gechackfest.events.service.UserService;
+import com.gechackfest.events.vo.User;
 
 @Component
 public class UserValidator implements Validator {
@@ -23,10 +24,10 @@ public class UserValidator implements Validator {
         User user = (User) o;
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "NotEmpty");
-        if (user.getUsername().length() < 6 || user.getUsername().length() > 32) {
+        if (user.getUserName().length() < 6 || user.getUserName().length() > 32) {
             errors.rejectValue("username", "Size.userForm.username");
         }
-        if (userService.findByUsername(user.getUsername()) != null) {
+        if (userService.findByUsername(user.getUserName()) != null) {
             errors.rejectValue("username", "Duplicate.userForm.username");
         }
 
