@@ -1,0 +1,11 @@
+@charset "ISO-8859-1";
+label{
+background-color: #8ab92d;
+	color:white;
+	border-radius: 3px;
+}
+input{
+	border-radius: 5px;
+	border: 1px solid #c7c7c7;
+
+}

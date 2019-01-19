@@ -1,0 +1,196 @@
+
+<section class="schedule-area pb-100" id="schedule" ng-controller='shedualeCtrl'>
+		<div class="container">
+			<div class="row d-flex justify-content-center">
+				<div class="menu-content pb-70 col-lg-8">
+					<div class="title text-center">
+						<h1 class="mb-10">All Exciting Events</h1>
+						<p>Who are in extremely love with eco friendly system.</p>
+					</div>
+				</div>
+			</div>
+			<div >
+			<button  class='btn btn-success' data-toggle="modal" data-target="#newEvent" ><span>Create New Event</span></button>
+			
+			
+			<div class="modal fade model-lg " id="newEvent" role="dialog"
+		style=' margin:auto; margin-top: 25px;display: marker; background: rgba(4, 9, 30, .85)'>
+		<div class="modal-dialog modal-lg " >
+
+			<!-- Modal content-->
+			<div class="modal-content" id='myModelBody' style='background: rgba(4, 9, 30, .85)'>
+
+				<div class="modal-body" ng-init='certiType=null'
+					style="">
+					<div id='login'>
+						<div class="pen-title">
+							<h1></h1>
+						</div>
+						<div class="container">
+
+							<div class="card" style="border: none">
+								<h1 class="card-header"
+									style="background: #8ab92d; color: white; border: none">Create New Event</h1>
+
+								<div class="card-body" 
+									style=" ">
+								
+									<div class='row' >
+										<ul class='list-group '  style="width: 50%">
+											<li
+												class='list-group-item'>
+												<label for="Username">
+													&nbspEvent Name&nbsp
+												</label>
+												<input type="text"
+													id="Username" ng-model='registerEvent.name'
+													required="required" />
+											</li>
+
+
+
+
+											<li
+												class='list-group-item'>
+												<label for="Password"
+													style="margin-top: 10px">
+													&nbspStart Date&nbsp
+												</label>
+												<input type="date"
+													id="Password" ng-model='registerEvent.startDate' required="required" />
+											</li>
+											
+											<li
+												class='list-group-item'>
+												<label for="Password"
+													style="margin-top: 10px">
+													&nbspStart Time&nbsp
+												</label>
+												<input kendo-time-picker
+             						 ng-model="registerEvent.startTime"
+             									
+              										 style="width: 70%;" />
+											</li>
+											
+
+										</ul>
+										<ul class='list-group '  style="width: 50%">
+											<li
+												class='list-group-item'>
+												<label for="Username">
+													&nbspCategory&nbsp
+												</label>
+												{{item}}
+												<input 
+													 list='categoryList' ng-model='temp'
+													required="required" />
+											
+													<datalist id="categoryList">
+												<option ng-repeat='item in category' ng-value='item.id'>{{item.name}} </option>
+													
+													</datalist><button class='btn btn-success' ng-click='registerEvent.category.push(temp)'>Add</button>
+											
+											{{registerEvent.category|listToString}}
+											</li>
+
+
+
+
+											<li
+												class='list-group-item'>
+												<label 
+													style="margin-top: 10px">
+													&nbspEnd Date&nbsp
+												</label>
+												<input type="date"
+													 ng-model='registerEvent.endDate' required="required" />
+											</li>
+											
+											<li
+												class='list-group-item'>
+												<label 
+													style="margin-top: 10px">
+													&nbspEnd Time&nbsp
+												</label>
+												<input kendo-time-picker
+             						 ng-model="registerEvent.endTime"
+             									
+              										 style="width: 70%;" />
+											</li>
+											<li
+												class='list-group-item'>
+												<label for="Password"
+													style="margin-top: 10px">
+													&nbspVenue&nbsp
+												</label>
+												<input type="text"
+													id="Password" ng-model='registerEvent.venue' required="required" />
+											</li>
+
+										</ul>
+										<button class='btn btn-primary'
+											data-dismiss="modal"
+											style="background: #8ab92d;color: white;margin: auto"
+											ng-click='newEvent()'>
+											<span>Add Event</span>
+										</button>
+									</div >
+								</div>
+							</div>
+							
+							
+								
+							
+							
+							
+								</div>
+						</div>
+
+					</div>
+
+
+
+
+				</div>
+
+			</div>
+
+		</div>
+			</div>
+			<div class="row">
+				<div class="table-wrap col-lg-12">
+					<table class="schdule-table table table-bordered">
+						<thead class="thead-light">
+							<tr>
+								<th class="head" scope="col">sl</th>
+								<th class="head" scope="col">Event Name</th>
+								
+								<th class="head" scope="col">Venue</th>
+								<th class="head" scope="col">Start Date</th>
+								<th class="head" scope="col">End Date</th>
+								<th class="head" scope="col">Start time</th>
+								<th class="head" scope="col">End time</th>
+								<th class="head" scope="col">Activity</th>
+								<th class="head" scope="col">Register</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat='item in listOfevent'>
+								<th class="name" scope="row">{{$index+1}}</th>
+								<td>{{item.name}}</td>
+								<td>{{item.venue}}</td>
+								<td>{{item.startDate|date:'dd-mm-yyyy'}}</td>
+								<td>{{item.endDate|date:'dd-mm-yyyy'}}</td>
+								<td>{{item.startTime}}</td>
+								<td>{{item.endTime}}</td>
+								<td>{{item.category|listToString}}</td>
+							
+								<td><button class='btn btn-default' style="border-radius: 5px;background: #8ab92d" ng-disabled='item.isRegistered' ng-click="registerUser(item.id)"><span>Register</span></button></td>
+							</tr>
+							
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</section>

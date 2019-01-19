@@ -16,22 +16,22 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Table(name = "role")
 public class RoleHibVO {
 	@Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long role_id;
-	@Column(name="role_name")
-    private String roleName;
-	@Column(name="role_desc")
-    private String roleDesc;
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@Column(name = "role_id")
+	private Long roleId;
+	@Column(name = "role_name")
+	private String roleName;
+	@Column(name = "role_desc")
+	private String roleDesc;
 	@ManyToMany(mappedBy = "roles")
-    private Set<UserHibVO> users;
+	private Set<UserHibVO> users;
 
-    
-    public Long getRole_id() {
-		return role_id;
+	public Long getRoleId() {
+		return roleId;
 	}
 
-	public void setRole_id(Long role_id) {
-		this.role_id = role_id;
+	public void setRoleId(Long roleId) {
+		this.roleId = roleId;
 	}
 
 	public String getRoleName() {
@@ -50,12 +50,11 @@ public class RoleHibVO {
 		this.roleDesc = roleDesc;
 	}
 
-	
-    public Set<UserHibVO> getUsers() {
-        return users;
-    }
+	public Set<UserHibVO> getUsers() {
+		return users;
+	}
 
-    public void setUsers(Set<UserHibVO> users) {
-        this.users = users;
-    }
+	public void setUsers(Set<UserHibVO> users) {
+		this.users = users;
+	}
 }

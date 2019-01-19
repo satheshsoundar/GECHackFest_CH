@@ -22,6 +22,10 @@ public class UserHibVO {
 	@ManyToMany
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<RoleHibVO> roles;
+	
+	@ManyToMany
+	@JoinTable(name = "registered_events", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "event_id"))
+	private Set<EventDetailsHibVO> events;
 
 	public Long getUserId() {
 		return userId;
@@ -78,4 +82,13 @@ public class UserHibVO {
 	public void setRoles(Set<RoleHibVO> roles) {
 		this.roles = roles;
 	}
+
+	public Set<EventDetailsHibVO> getEvents() {
+		return events;
+	}
+
+	public void setEvents(Set<EventDetailsHibVO> events) {
+		this.events = events;
+	}
+	
 }

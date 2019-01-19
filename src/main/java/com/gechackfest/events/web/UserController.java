@@ -44,11 +44,9 @@ public class UserController {
         securityService.autologin(user.getUserName(), user.getPassword());
         return "redirect:/welcome";
     }
-
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(@RequestBody User user) {
-    	
-        return "login";
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login() {
+              return "login";
     }
 
     @RequestMapping(value = {"/", "/welcome"}, method = RequestMethod.GET)

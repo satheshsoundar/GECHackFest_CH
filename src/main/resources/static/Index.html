@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+<head>
+
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="shortcut icon" href="img/fav.png">
+
+<meta name="author" content="codepixer">
+
+<meta name="description" content="">
+
+<meta name="keywords" content="">
+
+<meta charset="UTF-8">
+
+<title>InfosysEventEasy</title>
+<link
+	href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700"
+	rel="stylesheet">
+
+<link rel="stylesheet" href="css/linearicons.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/magnific-popup.css">
+<link rel="stylesheet" href="css/nice-select.css">
+<link rel="stylesheet" href="css/animate.min.css">
+<link rel="stylesheet" href="css/owl.carousel.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/custom.css">
+<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	rel="stylesheet" />
+	<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2019.1.115/styles/kendo.common-material.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2019.1.115/styles/kendo.material.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2019.1.115/styles/kendo.material.mobile.min.css" />
+
+  
+   
+</head>
+<body ng-app='GecHackFest'>
+<div ng-controller='navCtrl'>
+	<header id="header" id="home" style="background: rgba(4, 9, 30, .85);color: white; " >
+		<div class="container">
+			<div class="row sticky-top align-items-center justify-content-between d-flex" style="background: rgba(4, 9, 30, .85);color: white; ">
+				<div id="logo">
+					<a href="index.html"><img src="img/logo.png" alt="" title="" /></a>
+				</div>
+				<nav id="nav-menu-container" style="background: rgba(4, 9, 30, .85);color: white; ">
+					<ul class="nav-menu">
+						<li class="menu-active"><a href="#!home">Home</a></li>
+						<li><a href="#!videos">Videos</a></li>
+						<li><a href="#!speakers">Speakers</a></li>
+						<li><a href="#!schedule">Schedule</a></li>
+						
+						<li ng-show='user_name==null'><a  class="ticker-btn" href="#"
+							data-toggle="modal" data-target="#myModal">Sign In</a> 
+						</li>
+						<li ng-show='user_name!=null'><a
+							 class="ticker-btn" href="#">{{user_name+' '}}</a>
+							<ul>
+								<li><a href="index.html" ng-click='signout()'>Sign Out</a></li>
+								
+							</ul></li>
+							
+							
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header>
+	<!-- Modal -->
+	<div class="modal fade " id="myModal" role="dialog"
+		style='width: 350px; margin-left: 950px; margin-top: 25px;display: marker;'>
+		<div class="modal-dialog  ">
+
+			<!-- Modal content-->
+			<div class="modal-content" id='myModelBody'>
+
+				<div class="modal-body" ng-init='certiType=null'
+					style="margin: auto; background: rgba(4, 9, 30, .85)">
+					<div id='login'>
+						<div class="pen-title">
+							<h1></h1>
+						</div>
+						<div class="container">
+
+							<div class="card" style="border: none">
+								<h1 class="card-header"
+									style="background: #8ab92d; color: white; border: none">Login</h1>
+
+								<div class="card-body" 
+									style="margin: auto; background: rgba(4, 9, 30, .85)">
+									<label for="Username">&nbspUsername&nbsp</label><input type="text"
+										id="Username" ng-model='verfy.user_name' required="required" />
+
+
+
+									<br> <label for="Password" style="margin-top: 10px">&nbspPassword&nbsp</label> <input
+										type="password" id="Password" ng-model='verfy.pass'
+										required="required" />
+
+			<button class='btn btn-primary' data-dismiss="modal" style="background: #8ab92d;color: white;margin: auto" ng-click='verfyUser()'>
+									<span>Sign in</span>
+								</button>
+								</div>
+							</div>
+							
+							
+								<a href="#" data-dismiss='model'  data-toggle="modal"
+									data-target="#myModalRegister" style="cursor: pointer;">New user?Register</a>
+							
+							
+							
+								</div>
+						</div>
+
+					</div>
+
+
+
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	
+
+	
+
+
+	<div ng-view='' style="margin-top: 70px">
+	
+	</div>
+
+
+	
+
+	
+
+
+
+	<script src="js/vendor/jquery-2.2.4.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script src="js/vendor/bootstrap.min.js"></script>
+	<script type="text/javascript"
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+	<script src="js/easing.min.js"></script>
+	<script src="js/hoverIntent.js"></script>
+	<script src="js/superfish.min.js"></script>
+	<script src="js/jquery.ajaxchimp.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/jquery.sticky.js"></script>
+	<script src="js/jquery.nice-select.min.js"></script>
+	<script src="js/parallax.min.js"></script>
+	<script src="js/mail-script.js"></script>
+	<script src="js/main.js"></script>
+	<script
+		src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src='js/angular.js'></script>
+	<script type="text/javascript" src='js/angular-route.js'></script>
+	 <script src="https://kendo.cdn.telerik.com/2019.1.115/js/kendo.all.min.js"></script>
+	<script type="text/javascript" src='userJs/application.js'></script>
+		<script type="text/javascript" src='userJs/controller.js'></script>
+	<script async
+		src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-23581568-13');
+	</script>
+</body>
+</html>
